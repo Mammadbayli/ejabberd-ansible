@@ -1,0 +1,85 @@
+---
+- hosts: ejabberd
+  vars:
+    - ejabberd_deb_file: /home/ubuntu/ejabberd.deb
+    - ejabberd_version: 21.04
+  tasks:
+    # - name: update all packages to their latest version
+    #   apt:
+    #     name: "*"
+    #     state: latest
+    #   become: yes
+
+    # - name: install acl
+    #   apt:
+    #     name: "acl"
+    #     state: latest
+    #   become: yes
+
+    # - name: install erlang mysql driver
+    #   apt:
+    #     name: "erlang-p1-mysql"
+    #     state: latest
+    #   become: yes
+
+    # - name: download ejabberd
+    #   get_url: 
+    #     url: https://www.process-one.net/downloads/downloads-action.php?file=/{{ ejabberd_version }}/ejabberd_{{ ejabberd_version }}-0_amd64.deb 
+    #     dest: "{{ ejabberd_deb_file }}"
+
+    # - name: install ejabberd
+    #   apt:
+    #     deb: "{{ ejabberd_deb_file }}"
+    #   become: yes
+
+    # - name: copy ejabberd config file
+    #   ansible.builtin.copy:
+    #     src: ejabberd-config.yml
+    #     dest: /opt/ejabberd/conf/ejabberd.yml
+    #     owner: ejabberd
+    #     group: ejabberd
+    #     mode: u=rw,g=r,o=r
+    #   become: yes
+
+    # - name: set environment variables
+    #   ansible.builtin.shell: echo "export NFS_API_URL={{ lookup('env', 'NFS_API_URL') }}\nNFS_API_KEY={{ lookup('env', 'NFS_API_KEY') }}" >> /etc/environment
+    #   become: yes
+
+    # - name: clone external auth script
+    #   ansible.builtin.git:
+    #     repo: https://github.com/Mammadbayli/ejabberd-firebase-auth.git
+    #     dest: /opt/ejabberd/ejabberd-firebase-auth
+    #   become: true
+    #   become_user: ejabberd
+
+    # - name: clone mod_offline_forward
+    #   ansible.builtin.git:
+    #     repo: https://github.com/Mammadbayli/mod_offline_forward.git
+    #     dest: /opt/ejabberd/.ejabberd-modules/sources/mod_offline_forward
+    #   become: true
+    #   become_user: ejabberd
+    
+    # - name: start ejabberd service
+    #   ansible.builtin.shell: "cp /opt/ejabberd-{{ ejabberd_version }}/bin/ejabberd.service /etc/systemd/system"
+    #   become: yes
+    
+    # - name: reload systemd
+    #   ansible.builtin.shell: sudo systemctl daemon-reload
+    #   become: yes
+    
+    # - name: start the service and enable it to start on boot
+    #   ansible.builtin.shell: sudo systemctl daemon-reload
+    #   become: yes
+
+    # - name: install mod_offline_forward
+    #   ansible.builtin.shell: sudo /opt/ejabberd-21.04/bin/ejabberdctl module_install mod_offline_forward
+    #   become: yes
+
+    # - name: update ejabberd.yml
+    #   ansible.builtin.shell: "echo \"  mod_offline_forward: {}\" >> /opt/ejabberd/conf/ejabberd.yml"
+    #   become: yes
+
+    # - name: restart ejabberd
+    #   ansible.builtin.shell: sudo systemctl reload ejabberd
+    #   become: yes
+    
