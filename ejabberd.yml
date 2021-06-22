@@ -64,22 +64,22 @@
     #   become: yes
     
     # - name: reload systemd
-    #   ansible.builtin.shell: sudo systemctl daemon-reload
+    #   ansible.builtin.shell: systemctl daemon-reload
     #   become: yes
     
     # - name: start the service and enable it to start on boot
-    #   ansible.builtin.shell: sudo systemctl daemon-reload
+    #   ansible.builtin.shell: systemctl daemon-reload
     #   become: yes
 
     # - name: install mod_offline_forward
-    #   ansible.builtin.shell: sudo /opt/ejabberd-21.04/bin/ejabberdctl module_install mod_offline_forward
+    #   ansible.builtin.shell: /opt/ejabberd-21.04/bin/ejabberdctl module_install mod_offline_forward
     #   become: yes
 
     # - name: update ejabberd.yml
-    #   ansible.builtin.shell: "echo \"  mod_offline_forward: {}\" >> /opt/ejabberd/conf/ejabberd.yml"
+    #   ansible.builtin.shell: "sed -i 's/#mod_offline_forward: {}/mod_offline_forward: {}/g' /opt/ejabberd/conf/ejabberd.yml"
     #   become: yes
 
     # - name: restart ejabberd
-    #   ansible.builtin.shell: sudo systemctl reload ejabberd
+    #   ansible.builtin.shell: /opt/ejabberd-21.04/bin/ejabberdctl retsart
     #   become: yes
     
